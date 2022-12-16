@@ -17,6 +17,7 @@ public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Boolean ativo;
     private String nome;
     private String email;
     private String cpf;
@@ -27,10 +28,28 @@ public class Paciente {
 
 
     public Paciente(DadosPaciente dados) {
+        this.ativo = true;
         this.cpf = dados.cpf();
         this.telefone = dados.telefone();
         this.email = dados.email();
         this.endereco = new Endereco(dados.endereco());
         this.nome = dados.nome();
+    }
+
+    public void atualizar(DadosAtualizarPaciente dados) {
+        if(dados.nome() != null){
+            this.nome = dados.nome();
+        }
+        if(dados.telefone() != null){
+            this.telefone = dados.telefone();
+        }
+        if(dados.endereco() != null){
+            this.endereco.atualizar(dados.endereco());
+        }
+    }
+
+    public void excluir(){
+        this.nome = "testando testando testando";
+        this.ativo = false;
     }
 }
