@@ -69,7 +69,7 @@
 				<configuration>
 					<url>jdbc:mysql://localhost:3309/vollmed-api</url>
 					<user>root</user>
-					<password>root</password>
+					<password>MSQnoir1!</password>
 				</configuration>
 			</plugin>
 
